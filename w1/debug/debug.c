@@ -23,11 +23,11 @@ int main(void)
     write_str(location);
     write_str("!\n");
 */
-    ft_string("Hello, ");
-    ft_string(name);
-    ft_string(", from ");
-    ft_string(location);
-    ft_string("!\n");
+    ft_putstr("Hello, ");
+    ft_putstr(name);
+    ft_putstr(", from ");
+    ft_putstr(location);
+    ft_putstr("!\n");
 
     free(name);
     free(location);
