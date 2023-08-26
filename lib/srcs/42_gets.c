@@ -57,6 +57,12 @@ char *get_str(const char *prompt)
     return input;
 }
 
+
+void write_str(const char *str)
+{
+    write(1, str, ft_strlen(str));
+}
+
 int get_int(const char *str)
 {
     char *input;
