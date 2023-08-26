@@ -13,12 +13,10 @@ int main(void)
     tip = get_int("Tip percent: ");
 
     bill = bill +((tax/100) * bill);
-    printf("BILL A dps: %f\n", bill);
     bill = bill + ((tip/100) * bill);
-    printf("BILL B  dps: %f\n", bill);
-    ft_string("You will owe ");
+    ft_putstr("You will owe ");
     print_float(bill / 2);
-    ft_string(" each!");
+    ft_putstr(" each!");
 }
 
 

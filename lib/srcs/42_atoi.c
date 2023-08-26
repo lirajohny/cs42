@@ -12,18 +12,16 @@
 
 #include "cs42.h"
 
-float	ft_atoi(char *str)
+// ATOI FOR INT 
+long	ft_atoi(char *str)
 {
-	long	i;
-	float	res;
-    float   dot;
-	float	sign;
-    int j;
+	int	i;
+	long	res;
+	long	sign;
 
 	i = 0;
 	res = 0;
-    dot = 0.0;
-	sign = 1.0;
+	sign = 1;
 	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 	{
 		i++;
@@ -36,7 +34,38 @@ float	ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = (res * 10.00) + (str[i] - '0');
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+    return (res * sign);
+}
+
+// ATOI FOR FLOATS
+float	ft_atoi_float(char *str)
+{
+	long	i;
+	float	res;
+    float   dot;
+	float	sign;
+    int j;
+
+	i = 0;
+	res = 0;
+    dot = 0;
+	sign = 1;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+	{
+		i++;
+	}
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
     if (str[i] == '.' || str[i] == ',')
@@ -46,7 +75,7 @@ float	ft_atoi(char *str)
     j = 10;
     while (str[i] >= '0' && str[i] <= '9')
     {
-        dot  = (str[i] - '0') / (float)j;  // Convertendo para float para evitar divisão inteira
+        dot  = (str[i] - '0') / (float)j;  // Converts to float to avoid int division
         res = res + dot;
         j *= 10;
         i++;

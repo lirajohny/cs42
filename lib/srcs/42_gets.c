@@ -1,5 +1,9 @@
 #include "cs42.h"
 
+
+/* GETS INFORMATION FROM THE USER 
+ * get_str | get_int | get_long | get_float  */
+
 char *get_str(const char *prompt)
 {
     int len = 0;
@@ -7,7 +11,7 @@ char *get_str(const char *prompt)
     char *input;
     
     // Display the prompt
-    write(1, prompt, ft_strlen(prompt));
+    write(1, prompt, ft_slen(prompt));
 
 
     // Read characters until '\n' or EOF is found
@@ -35,7 +39,7 @@ char *get_str(const char *prompt)
             break;
         }
 
-        if (len < (BUFFER_SIZE * 2) - 1)  // Ajustar para o tamanho de str_buffer
+        if (len < (BUFFER_SIZE * 2) - 1)
         {
             str_buffer[len++] = c;
         }
@@ -70,38 +74,19 @@ long get_long(const char *str)
     long nbr;
 
     input = ft_strdup(get_str(str)); 
-    nbr = (long)ft_atoi(input);
+    nbr = ft_atoi(input);
     
     return (nbr);
 }
-#include <stdio.h>
+
 float get_float(const char *str)
 {
     char *input;
     float nbr;
 
     input = ft_strdup(get_str(str)); 
-    nbr = ft_atoi(input);
+    nbr = ft_atoi_float(input);
     
-    printf("FLOAT : %f\n", nbr);
     return (nbr);
 }
 
-void print_float(float nbr)
-{
-    int before;
-    int after;
-    float decimal_part;
-    
-    before = (int)nbr;            // Extract whole number part
-    decimal_part = nbr - before;  // Extract decimal part
-
-    // Multiply by 100 to print two decimal places.
-    // Adjust as needed for more/less precision.
-    after = (int)(decimal_part * 100); 
-
-    ft_putnbr(before);
-    write(1, ".", 1);
-    ft_putnbr(after);
-    write(1, "\n", 1);
-}

@@ -12,7 +12,20 @@
 
 #include "cs42.h"
 
+
 int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+// this one is made specially fot the 42_gets functions, it requires a const char*, in all other functions I use char *
+int	ft_slen(const char *str)
 {
 	int	i;
 
