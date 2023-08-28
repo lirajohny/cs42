@@ -60,7 +60,7 @@ char *get_str(const char *prompt)
 
 void write_str(const char *str)
 {
-    write(1, str, ft_strlen(str));
+    write(1, str, ft_slen(str));
 }
 
 int get_int(const char *str)
